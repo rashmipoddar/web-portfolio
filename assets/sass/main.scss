@@ -131,7 +131,7 @@
 
 	a {
 		@include vendor('transition', ('color #{_duration(transition)} ease-in-out', 'border-color #{_duration(transition)} ease-in-out'));
-		border-bottom: solid 1px _palette(border2);
+		// border-bottom: solid 1px _palette(border2);
 		color: inherit;
 		text-decoration: none;
 
@@ -321,6 +321,14 @@
 		@include breakpoint('<=xsmall') {
 			max-width: calc(100% - #{_size(element-margin) * 1.5});
 		}
+		
+		.contact-icons {
+			font-size: 1.8em;
+			a {
+				margin-right: 0.3em;
+			}
+		}
+
 	}
 
 /* Section/Article */
@@ -368,8 +376,22 @@
 					font-size: 1.75em;
 					font-weight: _font(weight-bold);
 					margin-top: -0.75em;
+					margin-bottom: 0.10em;
 				}
 			}
+			a {
+				font-size: 1.5em;
+			}
+			i {
+				margin-left: 0.3em;
+				margin-bottom: 1.4em;
+				cursor: pointer;
+
+				&:hover {
+					color: #4acaa8;
+				}
+			}
+			
 		}
 	}
 
@@ -1022,7 +1044,7 @@
 	.button {
 		@include vendor('appearance', 'none');
 		@include vendor('transition', ('background-color #{_duration(transition)} ease-in-out', 'color #{_duration(transition)} ease-in-out'));
-		background-color: _palette(accent2, bg);
+		background-color: _palette(accent1, bg);
 		border-radius: _size(border-radius);
 		border: 0;
 		color: _palette(accent2, fg-bold) !important;
@@ -1037,7 +1059,7 @@
 		white-space: nowrap;
 
 		&:hover {
-			background-color: lighten(_palette(accent2, bg), 5);
+			background-color: lighten(_palette(accent1, bg), 5);
 			color: _palette(accent2, fg-bold) !important;
 		}
 
@@ -1302,6 +1324,7 @@
 		color: #c0c0c0;
 		overflow: hidden;
 		padding: 4em 0 2em 0;
+		text-align: center;
 
 		.copyright {
 			line-height: 1em;
@@ -1495,7 +1518,7 @@
 				top: 0;
 				width: 100%;
 				z-index: _misc(z-index-base) + 1;
-				background: #222;
+				background: #e4f7f0;
 				color: #fff;
 				min-width: 320px;
 

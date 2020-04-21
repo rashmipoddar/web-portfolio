@@ -11,6 +11,7 @@
 		$header = $('#header'),
 		$titleBar = null,
 		$nav = $('#nav'),
+		$email = $('#email'),
 		$wrapper = $('#wrapper');
 
 	// Breakpoints.
@@ -28,6 +29,16 @@
 				$body.removeClass('is-preload');
 			}, 100);
 		});
+
+	//
+		$window.scroll(function() {
+			let offset = window.pageYOffset;
+			if (offset > $('div.container').outerHeight()) {
+				$('a.titleBarLink').css({'opacity': 1, 'color': '#4acaa8'})
+			} else {
+				$('a.titleBarLink').css('opacity',offset/$('div.container').outerHeight(), 'color', '#4acaa8')
+			}
+		}).scroll()
 
 	// Tweaks/fixes.
 
@@ -90,9 +101,9 @@
 
 					// Scrollex.
 						$section.scrollex({
-							mode: 'middle',
-							top: '5vh',
-							bottom: '5vh',
+							mode: 'top',
+							top: '3vh',
+							bottom: '3vh',
 							initialize: function() {
 
 								// Deactivate section.
@@ -125,7 +136,7 @@
 			$titleBar = $(
 				'<div id="titleBar">' +
 					'<a href="#header" class="toggle"></a>' +
-					'<span class="title">' + $('#logo').html() + '</span>' +
+					'<span class="title">' + '<a href="#" class="titleBarLink">Rashmi Poddar</a>' + '</span>' +
 				'</div>'
 			)
 				.appendTo($body);
@@ -154,6 +165,16 @@
 				return 0;
 
 			}
+		});
+
+		// copy to clipboard
+		$email.click(function() {
+			let $temp = $("<input>");
+			let copyText = document.getElementById("emailid").text;
+			$("body").append($temp);
+			$temp.val(copyText).select();
+			document.execCommand("copy");
+			$temp.remove();
 		});
 
 })(jQuery);
