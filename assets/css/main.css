@@ -105,6 +105,7 @@ body, input, select, textarea {
 a {
   -webkit-transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
   transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+  border-bottom: solid 1px #e4e4e4;
   color: inherit;
   text-decoration: none;
 }
@@ -1625,6 +1626,7 @@ header.major h2 + p {
 
 header.major a {
   font-size: 1.5em;
+  border-bottom: none;
 }
 
 header.major i {
